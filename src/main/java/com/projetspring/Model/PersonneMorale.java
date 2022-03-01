@@ -32,14 +32,4 @@ public class PersonneMorale implements Personne {
     }
 
 
-//
-//    @Override
-//    public void setReference(Reference r) {
-//
-//    }
-//
-//    @Override
-//    public Reference getReference() {
-//        return null;
-//    }
 }

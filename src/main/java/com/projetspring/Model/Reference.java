@@ -15,16 +15,11 @@ public class Reference {
     private Date datereference;
     private float montant;
     @ManyToOne
-
-    @JoinColumn(name = "idph")
+    //@JoinColumn(name = "idph")
     private PersonnePhisique pp;
     @ManyToOne
-
-    @JoinColumn(name = "idpm")
+    //@JoinColumn(name = "idpm")
     private PersonneMorale pm;
-   // @ManyToOne(targetEntity = PersonneMorale.class)
-   // @MapsId("R")
-//    @JoinColumn(name = "idpm",referencedColumnName = "id")
-//    private PersonneMorale pm;
+
 
 }
