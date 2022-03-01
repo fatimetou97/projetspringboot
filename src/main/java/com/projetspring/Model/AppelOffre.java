@@ -14,16 +14,25 @@ public class AppelOffre {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String objet;
-    private Float montant;
+    private double montant;
     private Date datepublication;
     private Date datefin;
     private long delai;
+
+    public long getDelai() {
+        return delai=datefin.getTime()-datepublication.getTime();
+    }
+
+    public void setDelai(long delai) {
+        this.delai = delai;
+    }
+
     @OneToOne(targetEntity = PersonnePhisique.class)
-    @MapsId
+
     @JoinColumn(name = "PersonneP_id",referencedColumnName = "id")
     private PersonnePhisique PH;
     @OneToOne(targetEntity = PersonneMorale.class)
-    @MapsId
+
     @JoinColumn(name = "PersonneM_id",referencedColumnName = "id")
     private PersonneMorale PM;
 }
