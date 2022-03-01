@@ -43,15 +43,15 @@ public class AppeloffreService {
     public ResponseEntity<Object> updatePH(@RequestBody PersonnePhisique ph, @PathVariable Integer id) {
 
         Optional<PersonnePhisique> phOptional = personnePhisiqueRepository.findById(id);
-    try {
-        ph.setId(id);
-        personnePhisiqueRepository.save(ph);
-        return new ResponseEntity<>(ph,HttpStatus.ACCEPTED);
-    }
-    catch (Exception e){
-        return new ResponseEntity<>(null,HttpStatus.NOT_MODIFIED);
+        try {
+            ph.setId(id);
+            personnePhisiqueRepository.save(ph);
+            return new ResponseEntity<>(ph,HttpStatus.ACCEPTED);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(null,HttpStatus.NOT_MODIFIED);
 
-    }
+        }
     }
     @DeleteMapping("/deleteRef/{id}")
     public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") Integer id) {
