@@ -26,6 +26,8 @@ public class AppeloffreService {
     private ReferenceRepository referenceRepository;
     @Autowired
     private AppelOffreRepository appelOffreRepository;
+    @Autowired
+    private Reference ref;
 
     @GetMapping("/getpersonnePH/{id}")
     public ResponseEntity<PersonnePhisique> getpersonneph(@PathVariable Integer id){
@@ -65,7 +67,7 @@ public class AppeloffreService {
     @GetMapping("/getRef/{id}")
     public ResponseEntity<Reference> getRef(@PathVariable Integer id){
         try {
-            Reference ref=new Reference();
+
             ref=referenceRepository.findById(id).get();
             return new ResponseEntity<>(ref,HttpStatus.FOUND);
         }
@@ -128,11 +130,12 @@ public class AppeloffreService {
         }
     }
     @PostMapping("/savePP")
-    public PersonnePhisique placeRef(@RequestBody PersonnePhisique pp) {
+    public PersonnePhisique savePP(@RequestBody PersonnePhisique pp) {
         return personnePhisiqueRepository.save(pp);
     }
     @GetMapping("/findAllPP")
     public List<PersonnePhisique> findAllPP(){
+
         return personnePhisiqueRepository.findAll();
     }
     @DeleteMapping("/deletePP/{id}")

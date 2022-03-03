@@ -1,11 +1,13 @@
 package com.projetspring.Model;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
 @Entity
 @Data
+@Builder
 public class Reference {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
